@@ -13,7 +13,7 @@ readonly SOURCE_DIRECTORY="${INPUT_SOURCEDIRECTORY}"
 readonly GH_USER="${INPUT_ACTOR:-"${GITHUB_ACTOR}"}"
 readonly GH_REPOSITORY="${INPUT_REPO:-"${GITHUB_REPOSITORY}"}"
 readonly GH_BRANCH="${INPUT_TARGETBRANCH:-'gh-pages'}"
-readonly GH_PAGES_FQDN="${INPUT_FQDN:-''}"
+readonly GH_PAGES_FQDN="${INPUT_FQDN:-""}"
 
 readonly WORK_DIR="$(mktemp -d -p .)"
 
