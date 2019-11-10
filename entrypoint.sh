@@ -7,12 +7,13 @@ set -o pipefail # set status code to the last failed command in a pipe if any
 # set -x          # print each command before executing it
 
 
-readonly GH_USER="${1}"
-readonly GH_REPOSITORY="${2}"
-readonly GH_TOKEN="${3}"
-readonly GH_BRANCH="${4:-"gh-pages"}"
-readonly GH_PAGES_FQDN="${5:-""}"
-readonly SOURCE_DIRECTORY="${6:-"output"}"
+readonly GH_TOKEN="${INPUT_TOKEN}"
+readonly SOURCE_DIRECTORY="${INPUT_SOURCEDIRECTORY}"
+
+readonly GH_USER="${INPUT_ACTOR:-"${GITHUB_ACTOR}"}"
+readonly GH_REPOSITORY="${INPUT_REPO:-"${GITHUB_REPOSITORY}"}"
+readonly GH_BRANCH="${INPUT_TARGETBRANCH:-'gh-pages'}"
+readonly GH_PAGES_FQDN="${INPUT_FQDN:-''}"
 
 readonly WORK_DIR="$(mktemp -d -p .)"
 

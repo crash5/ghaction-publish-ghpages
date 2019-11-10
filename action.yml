@@ -36,10 +36,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.actor }}
-    - ${{ inputs.repo }}
-    - ${{ inputs.token }}
-    - ${{ inputs.targetBranch }}
-    - ${{ inputs.fqdn }}
-    - ${{ inputs.sourceDirectory }}
