@@ -1,5 +1,5 @@
 FROM alpine/git:latest
 
-COPY script.sh /
+COPY entrypoint.sh /
 
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
