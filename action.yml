@@ -1,0 +1,45 @@
+name: Publish to GitHub Pages
+description: Upload specific directory to a specific branch
+
+branding:
+  icon: 'upload-cloud'
+  color: 'black'
+
+inputs:
+# Required
+  token:
+    description: 'Personal access token'
+    required: true
+  sourceDirectory:
+    description: 'Source folder, relative to repository root'
+    required: true
+
+# Required, with default value
+  actor:
+    description: 'Committer username'
+    required: true
+    default: ${{ github.actor }}
+  repo:
+    description: 'Destination repository'
+    required: true
+    default: ${{ github.repository }}
+  targetBranch:
+    description: 'Destination branch'
+    required: true
+    default: 'gh-pages'
+
+# Optional
+  fqdn:
+    description: 'Page FQDN / CNAME / Domain'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.actor }}
+    - ${{ inputs.repo }}
+    - ${{ inputs.token }}
+    - ${{ inputs.targetBranch }}
+    - ${{ inputs.fqdn }}
+    - ${{ inputs.sourceDirectory }}
