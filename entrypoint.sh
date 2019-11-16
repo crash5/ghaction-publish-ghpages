@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-set -e          # exit immediately when a command fails
-set -u          # treat unset variables as an error and exit immediately
-# set -E          # inherit custom signal traps
-set -o pipefail # set status code to the last failed command in a pipe if any
-# set -x          # print each command before executing it
+set -o errexit      # (-e) exit immediately when a command fails
+set -o nounset      # (-u) treat unset variables as an error and exit immediately
+# set -o errtrace     # (-E) inherit custom signal traps
+set -o pipefail     # set status code to the last failed command in a pipe if any
+# set -o xtrace       # (-x) print each command before executing it
 
 
 readonly GH_TOKEN="${INPUT_TOKEN}"
