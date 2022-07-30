@@ -36,4 +36,4 @@ git config user.email "${GH_USER}@users.noreply.github.com"
 
 git add .
 git commit --all --message "Automatic deploy"
-git push --force --quiet "https://x-access-token:${GH_TOKEN}@github.com/${GH_REPOSITORY}.git" "HEAD:${GH_BRANCH}"
+git push --force --quiet "https://${GH_USER}:${GH_TOKEN}@github.com/${GH_REPOSITORY}.git" "HEAD:${GH_BRANCH}"
